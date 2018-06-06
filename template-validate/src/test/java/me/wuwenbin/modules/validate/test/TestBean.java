@@ -28,10 +28,10 @@ public class TestBean {
             RuleItem ruleItem = field.getAnnotation(RuleItem.class);
             IntegerEnumChecker checker = ruleItem.ruleType().getChecker();
             field.setAccessible(true);
-            int o = Integer.valueOf(String.valueOf(field.get(bean)));
+            Object actual = field.get(bean);
             String[] strings = ruleItem.ruleValue().split(",");
             int[] expected = Arrays.stream(strings).mapToInt(Integer::valueOf).toArray();
-            boolean s = checker.check(o, expected);
+            boolean s = checker.check(actual, expected);
             System.out.println(!s ? ruleItem.errorMsg() : "验证通过！");
         }
     }

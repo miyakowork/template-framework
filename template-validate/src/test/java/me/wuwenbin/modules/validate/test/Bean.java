@@ -11,6 +11,7 @@ import me.wuwenbin.modules.validate.constant.RuleType;
 public class Bean {
 
     @RuleItem(ruleType = RuleType.IntEnum, ruleValue = "1,2,3", errorMsg = "noId填写不规范，请重新填写！")
+//    @RuleItem(ruleType = RuleType.IntEnum, ruleValue = "5,6", errorMsg = "a")
     private String noId;
 
     public String getNoId() {

@@ -25,6 +25,7 @@ public enum RuleType {
     }
 
     public <T extends SystemChecker> T getChecker() {
+        System.out.println(this.checker.getCanonicalName());
         try {
             //noinspection unchecked
             return (T) Class.forName(this.checker.getCanonicalName()).newInstance();
